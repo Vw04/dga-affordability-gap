@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homium — Shared Appreciation Down Payment Assistance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@400&family=Ubuntu:ital,wght@0,300;0,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #3D7A58;
+      --green-dark: #2E5E43;
+      --dark: #1A2930;
+      --gray: #555;
+      --light-gray: #888;
+      --border: #E5E5E0;
+      --section-alt: #F7F7F4;
+      --bg: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 300;
+      color: var(--gray);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3 {
+      font-family: 'Taviraj', serif;
+      font-weight: 400;
+      color: var(--dark);
+    }
+
+    .label {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--green);
+    }
+
+    p { line-height: 1.7; }
+
+    /* NAV */
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav img.logo { height: 30px; }
+
+    nav .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    nav a.nav-link {
+      text-decoration: none;
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--dark);
+      transition: color 0.2s;
+    }
+
+    nav a.nav-link:hover { color: var(--green); }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn-green:hover { background: var(--green-dark); }
+
+    .btn-outline {
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--green);
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 100px 0 90px;
+      background-image: url('assets/photos and logos/homiumbackground.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.72);
+      z-index: 0;
+    }
+
+    .hero .container { position: relative; z-index: 1; }
+
+    .hero .label { margin-bottom: 18px; }
+
+    .hero h1 {
+      font-size: 50px;
+      line-height: 1.18;
+      max-width: 820px;
+      margin: 0 auto 24px;
+    }
+
+    .hero .subtitle {
+      font-size: 17px;
+      max-width: 620px;
+      margin: 0 auto 40px;
+      color: var(--gray);
+    }
+
+    .hero .cta-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero .data-note {
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* SECTIONS */
+    section { padding: 88px 0; }
+    section.alt { background: var(--section-alt); }
+
+    .section-head {
+      margin-bottom: 56px;
+    }
+
+    .section-head.centered { text-align: center; }
+
+    .section-head h2 {
+      font-size: 38px;
+      margin-top: 10px;
+      line-height: 1.2;
+    }
+
+    .section-head p {
+      margin-top: 14px;
+      max-width: 600px;
+      color: var(--light-gray);
+    }
+
+    .section-head.centered p { margin-left: auto; margin-right: auto; }
+
+    /* PROGRAM CARDS */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .program-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .program-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.72);
+      z-index: 0;
+      border-radius: 8px;
+    }
+
+    .program-card > * { position: relative; z-index: 1; }
+
+    .program-card h3 {
+      font-size: 26px;
+      margin: 12px 0 18px;
+      line-height: 1.2;
+    }
+
+    .program-card p {
+      margin-bottom: 32px;
+      color: var(--gray);
+    }
+
+    /* IMPACT METRICS */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    .impact-col h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--green);
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      gap: 16px;
+    }
+
+    .metric-row .val {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+
+    /* BORROWER STORIES */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 64px;
+    }
+
+    .story-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 30px;
+    }
+
+    .story-card .tag {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .story-card h4 {
+      font-family: 'Taviraj', serif;
+      font-weight: 400;
+      font-size: 19px;
+      color: var(--dark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .story-card p { font-size: 14px; }
+
+    /* VIDEO */
+    .video-container {
+      max-width: 820px;
+      margin: 36px auto 0;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* NEWS */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .news-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-card h4 {
+      font-family: 'Taviraj', serif;
+      font-weight: 400;
+      font-size: 17px;
+      color: var(--dark);
+      margin-bottom: 12px;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .news-card p {
+      font-size: 13px;
+      color: var(--light-gray);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .news-card a.read-link {
+      color: var(--green);
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .news-card a.read-link:hover { text-decoration: underline; }
+
+    /* AFFORDABILITY TOOL */
+    .select-wrap {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    #state-select {
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      padding: 14px 48px 14px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      color: var(--dark);
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      min-width: 280px;
+    }
+
+    #state-select:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+
+    .data-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .data-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .data-card .card-label {
+      display: block;
+      font-family: 'Ubuntu', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--light-gray);
+      margin-bottom: 12px;
+    }
+
+    .data-card .card-val {
+      font-family: 'Taviraj', serif;
+      font-weight: 400;
+      font-size: 30px;
+      color: var(--dark);
+    }
+
+    .data-card.gap-card {
+      grid-column: 1 / -1;
+      background: #f0f7f4;
+      border-color: var(--green);
+      padding: 40px 32px;
+    }
+
+    .data-card.gap-card .card-val {
+      font-size: 64px;
+      color: var(--green);
+      line-height: 1;
+      margin: 4px 0 12px;
+    }
+
+    .data-card.gap-card .gap-note {
+      font-size: 14px;
+      color: var(--light-gray);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .tool-placeholder {
+      text-align: center;
+      color: #bbb;
+      padding: 56px 0;
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      padding: 56px 0;
+      text-align: center;
+    }
+
+    footer img.logo {
+      height: 26px;
+      filter: invert(1) brightness(2);
+      margin-bottom: 16px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #778;
+    }
+
+    footer a {
+      color: #889;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: #fff; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero .subtitle { font-size: 16px; }
+
+      nav .nav-links { gap: 16px; }
+      nav a.nav-link { display: none; }
+
+      .programs-grid,
+      .impact-grid,
+      .stories-grid,
+      .news-grid,
+      .data-cards { grid-template-columns: 1fr; }
+
+      .data-card.gap-card {
+        grid-column: auto;
+      }
+
+      .data-card.gap-card .card-val { font-size: 48px; }
+
+      .section-head h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container inner">
+      <a href="#"><img src="assets/photos and logos/HomiumLogo_0721_Wordmark (Blue).png" alt="Homium" class="logo"></a>
+      <div class="nav-links">
+        <a href="#programs" class="nav-link">Programs</a>
+        <a href="#news" class="nav-link">News</a>
+        <a href="#affordability" class="nav-link">Affordability Tool</a>
+        <a href="https://www.homium.io" target="_blank" class="btn btn-green">Sponsor a Program</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="label">Shared Appreciation Down Payment Assistance</p>
+      <h1>The End-to-End Down Payment Assistance Program Solution for Affordable Homeownership</h1>
+      <p class="subtitle">A showcase of the transformative impact Homium creates through the Tobias Harris Homeownership Initiative and Utah Dream Fund — creating pathways to homeownership for working families across Detroit and Utah.</p>
+      <div class="cta-row">
+        <a href="#programs" class="btn btn-green">Explore Programs</a>
+        <a href="#affordability" class="btn btn-outline">Affordability Tool</a>
+      </div>
+      <p class="data-note">Data as of February 20, 2026</p>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <div class="container">
+      <div class="section-head centered">
+        <p class="label">Launched Programs</p>
+        <h2>Program Borrower Impact Overview</h2>
+        <p>Homium partners with state and local HFAs, municipalities, and nonprofits to offer shared appreciation mortgage down payment support built for homeowners to succeed.</p>
+      </div>
+      <div class="programs-grid">
+        <div class="program-card" style="background-image: url('assets/photos and logos/pexels-bernardino-munoz-3767003-5796988.jpg')">
+          <p class="label">Detroit, Michigan</p>
+          <h3>Tobias Harris Homeownership Initiative</h3>
+          <p>Tobias Harris partners with Homium to bring a new path to homeownership to Detroit — no monthly payments, just a fair, sustainable way for families to build equity and stay rooted in their communities. This initiative is made possible through the support of generous sponsors and is actively welcoming additional partners.</p>
+          <a href="https://www.thhidetroit.com/" target="_blank" class="btn btn-green">Visit thhidetroit.com</a>
+        </div>
+        <div class="program-card" style="background-image: url('assets/photos and logos/utahlandscape.png')">
+          <p class="label">Utah</p>
+          <h3>Utah Dream Fund</h3>
+          <p>Fair, innovative financing helps Utah families build wealth and strengthen communities. The Utah Dream Fund bridges the affordability gap and enables early access to homeownership opportunities through Promise Partnership Utah — a first-of-its-kind state partnership with Homium.</p>
+          <a href="https://www.utahdreamfund.com/" target="_blank" class="btn btn-green">Visit utahdreamfund.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BORROWER IMPACT -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="label">Borrower Impact</p>
+        <h2>Key Impact Loan Data</h2>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-col">
+          <h3>THHI Program Metrics</h3>
+          <div class="metric-row"><span>Average Home Sales Price</span><span class="val">$170,000</span></div>
+          <div class="metric-row"><span>Average Homium SAM %</span><span class="val">40%</span></div>
+          <div class="metric-row"><span>Average AMI</span><span class="val">56% ($52,000/yr)</span></div>
+          <div class="metric-row"><span>Average First Lien Rate</span><span class="val">8.07%</span></div>
+          <div class="metric-row"><span>Average First Lien LTV</span><span class="val">53%</span></div>
+          <div class="metric-row"><span>Average FICO Score</span><span class="val">709</span></div>
+          <div class="metric-row"><span>Average Monthly Income</span><span class="val">$4,386</span></div>
+          <div class="metric-row"><span>Average Front Ratio</span><span class="val">19%</span></div>
+          <div class="metric-row"><span>Average Back Ratio</span><span class="val">32%</span></div>
+          <div class="metric-row"><span>Avg Monthly PITI + Maintenance</span><span class="val">$964</span></div>
+        </div>
+        <div class="impact-col">
+          <h3>UDF Program Metrics</h3>
+          <div class="metric-row"><span>Average Home Sales Price</span><span class="val">$433,833</span></div>
+          <div class="metric-row"><span>Average Homium SAM %</span><span class="val">20%</span></div>
+          <div class="metric-row"><span>Average AMI</span><span class="val">87%</span></div>
+          <div class="metric-row"><span>Average First Lien Rate</span><span class="val">6.42%</span></div>
+          <div class="metric-row"><span>Average First Lien LTV</span><span class="val">46%</span></div>
+          <div class="metric-row"><span>Average FICO Score</span><span class="val">743</span></div>
+          <div class="metric-row"><span>Average Monthly Income</span><span class="val">$6,912</span></div>
+          <div class="metric-row"><span>Average Front Ratio</span><span class="val">27%</span></div>
+          <div class="metric-row"><span>Average Back Ratio</span><span class="val">45%</span></div>
+          <div class="metric-row"><span>Avg Monthly PITI + Maintenance</span><span class="val">$2,195</span></div>
+        </div>
+      </div>
+
+      <!-- BORROWER STORIES -->
+      <div class="stories-grid">
+        <div class="story-card">
+          <span class="tag">THHI Detroit</span>
+          <h4>A Single Mother's Dream Fulfilled</h4>
+          <p>A 30-year-old community health worker, navigating the challenges of single parenthood, triumphantly achieved first-time homeownership — securing long-term stability and a brighter future for her family.</p>
+        </div>
+        <div class="story-card">
+          <span class="tag">THHI Detroit</span>
+          <h4>A Lifelong Dream Realized</h4>
+          <p>At 65 years young, a dedicated renter at 36% AMI transformed her living situation, finally purchasing the very home she had cherished for 14 years — marking her incredible journey to first-time homeownership.</p>
+        </div>
+        <div class="story-card">
+          <span class="tag">Utah Dream Fund</span>
+          <h4>A Young Guardian's Milestone</h4>
+          <p>At just 25, a dedicated security guard seized the opportunity for homeownership, unlocking a future of financial independence and planting roots for a prosperous career.</p>
+        </div>
+        <div class="story-card">
+          <span class="tag">Utah Dream Fund</span>
+          <h4>Foundation for a Shared Future</h4>
+          <p>A physical therapist and a mechanic, both in their mid-30s, built a strong foundation for their lives together through homeownership — establishing long-term stability and a sense of belonging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section>
+    <div class="container">
+      <div class="section-head centered">
+        <p class="label">Watch</p>
+        <h2>See Homium in Action</h2>
+        <p>Learn how Homium continues to transform lives through innovative financing solutions that make homeownership accessible to working families.</p>
+      </div>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/XZCdLg3x2T0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="alt" id="news">
+    <div class="container">
+      <div class="section-head">
+        <p class="label">In the News</p>
+        <h2>Relevant News</h2>
+        <p>Coverage of the housing affordability crisis and the growing recognition of shared appreciation mortgage programs as a solution.</p>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <h4>Down Payment Challenge in Metro Detroit</h4>
+          <p>Axios reports it takes ~8 years to save for a down payment in Metro Detroit, highlighting how down payment barriers constrain homeownership.</p>
+          <a href="https://www.axios.com/local/detroit/2026/02/04/down-payment-metro-detroit-house-home-mortgage" target="_blank" class="read-link">Read Article →</a>
+        </div>
+        <div class="news-card">
+          <h4>Housing Inventory Challenges</h4>
+          <p>WSJ reports on home builders turning to the White House for help addressing inventory constraints, underscoring the broader housing supply challenges DPA programs help address.</p>
+          <a href="https://www.wsj.com/economy/housing/home-builders-turn-to-white-house-for-help-on-inventory-glut-7e41e708" target="_blank" class="read-link">Read Article →</a>
+        </div>
+        <div class="news-card">
+          <h4>Innovative DPA Models</h4>
+          <p>Investopedia highlights a Midwestern city and NBA star partnership covering 40% of homebuyers' down payments, showcasing community-driven approaches to DPA.</p>
+          <a href="https://www.investopedia.com/this-midwestern-city-and-an-nba-star-will-cover-40-of-homebuyers-down-payments-11815298" target="_blank" class="read-link">Read Article →</a>
+        </div>
+        <div class="news-card">
+          <h4>Rep. Andy Barr on Fair Share Appreciation Mortgages</h4>
+          <p>Congressional support for innovative mortgage solutions that expand homeownership access, highlighting bipartisan recognition of DPA programs' impact.</p>
+          <a href="https://www.linkedin.com/posts/homium_rep-andy-barr-fair-share-appreciation-mortgages-activity-7402075947799412736-IN3g" target="_blank" class="read-link">Read Post →</a>
+        </div>
+        <div class="news-card">
+          <h4>Congressional Hearing on Housing &amp; Urban Development</h4>
+          <p>C-SPAN coverage of House Committee hearing featuring Rep. Andy Barr's remarks on innovative mortgage solutions at 1:07:30, demonstrating legislative support for DPA programs.</p>
+          <a href="https://www.c-span.org/clip/house-committee/user-clip-rep-jim-himes-and-rep-andy-barr-on-solutions-for-affordable-homeownership/5192601" target="_blank" class="read-link">Watch Clip →</a>
+        </div>
+        <div class="news-card">
+          <h4>CFPB Issue Spotlight: Home Equity Contracts</h4>
+          <p>CFPB market overview references Homium as an example of companies offering shared equity programs that are 1:1 sales of the home's value. (Endnote 23)</p>
+          <a href="https://www.consumerfinance.gov/data-research/research-reports/issue-spotlight-home-equity-contracts-market-overview/" target="_blank" class="read-link">Read Report →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFFORDABILITY GAP TOOL -->
+  <section id="affordability">
+    <div class="container">
+      <div class="section-head centered">
+        <p class="label">Interactive Analysis</p>
+        <h2>State Affordability Gap Analysis</h2>
+        <p>Select a state to explore the gap between what a typical household can afford and the median home value — and understand why down payment assistance programs are essential.</p>
+      </div>
+      <div class="select-wrap">
+        <select id="state-select" onchange="selectState(this.value)">
+          <option value="">— Select a State —</option>
+          <option>Arizona</option>
+          <option>California</option>
+          <option>Connecticut</option>
+          <option>Delaware</option>
+          <option>Hawaii</option>
+          <option>Illinois</option>
+          <option>Kansas</option>
+          <option>Kentucky</option>
+          <option>Maryland</option>
+          <option>Massachusetts</option>
+          <option>Michigan</option>
+          <option>Minnesota</option>
+          <option>New Jersey</option>
+          <option>New York</option>
+          <option>North Carolina</option>
+          <option>Oregon</option>
+          <option>Pennsylvania</option>
+          <option>Rhode Island</option>
+          <option>Washington</option>
+        </select>
+      </div>
+      <div id="tool-output">
+        <p class="tool-placeholder">Select a state above to view affordability data.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <img src="assets/photos and logos/HomiumLogo_0721_Wordmark (Blue).png" alt="Homium" class="logo">
+      <p style="margin-top: 4px;">© 2026 Homium, Inc. All rights reserved.</p>
+      <p style="margin-top: 8px;"><a href="https://www.homium.io" target="_blank">homium.io</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const stateData = {
+      "Arizona":        { ami: 82768,  mhv: 429848, rent: 1509, ahp: 278419, gap: 151429 },
+      "California":     { ami: 101136, mhv: 773228, rent: 1988, ahp: 246868, gap: 526360 },
+      "Connecticut":    { ami: 95275,  mhv: 407234, rent: 1394, ahp: 293535, gap: 113699 },
+      "Delaware":       { ami: 84523,  mhv: 389964, rent: 1322, ahp: 310363, gap: 79601  },
+      "Hawaii":         { ami: 101529, mhv: 924013, rent: 1807, ahp: 291166, gap: 632847 },
+      "Illinois":       { ami: 84176,  mhv: 286497, rent: 1205, ahp: 260951, gap: 25546  },
+      "Kansas":         { ami: 72975,  mhv: 243477, rent: 899,  ahp: 217577, gap: 25900  },
+      "Kentucky":       { ami: 63706,  mhv: 227462, rent: 809,  ahp: 205124, gap: 22338  },
+      "Maryland":       { ami: 103503, mhv: 468044, rent: 1654, ahp: 349254, gap: 118790 },
+      "Massachusetts":  { ami: 105410, mhv: 637329, rent: 1763, ahp: 303830, gap: 333499 },
+      "Michigan":       { ami: 72645,  mhv: 259246, rent: 1004, ahp: 242575, gap: 16671  },
+      "Minnesota":      { ami: 88297,  mhv: 370277, rent: 1315, ahp: 284751, gap: 85526  },
+      "New Jersey":     { ami: 104287, mhv: 513938, rent: 1679, ahp: 284320, gap: 229618 },
+      "New York":       { ami: 85744,  mhv: 485429, rent: 1617, ahp: 232077, gap: 253352 },
+      "North Carolina": { ami: 74690,  mhv: 334561, rent: 1180, ahp: 254157, gap: 80404  },
+      "Oregon":         { ami: 84398,  mhv: 549301, rent: 1477, ahp: 251289, gap: 298012 },
+      "Pennsylvania":   { ami: 77579,  mhv: 303362, rent: 1159, ahp: 263080, gap: 40282  },
+      "Rhode Island":   { ami: 88514,  mhv: 447602, rent: 1303, ahp: 263379, gap: 184223 },
+      "Washington":     { ami: 100361, mhv: 641336, rent: 1701, ahp: 300334, gap: 341002 }
+    };
+
+    function fmt(n) {
+      return '$' + n.toLocaleString('en-US');
+    }
+
+    function selectState(name) {
+      const output = document.getElementById('tool-output');
+      if (!name) {
+        output.innerHTML = '<p class="tool-placeholder">Select a state above to view affordability data.</p>';
+        return;
+      }
+      const s = stateData[name];
+      const dp = Math.round(s.ahp * 0.03);
+      output.innerHTML = `
+        <div class="data-cards">
+          <div class="data-card">
+            <span class="card-label">Area Median Income</span>
+            <span class="card-val">${fmt(s.ami)}</span>
+          </div>
+          <div class="data-card">
+            <span class="card-label">Median Home Value</span>
+            <span class="card-val">${fmt(s.mhv)}</span>
+          </div>
+          <div class="data-card">
+            <span class="card-label">Median Monthly Rent</span>
+            <span class="card-val">${fmt(s.rent)}</span>
+          </div>
+          <div class="data-card">
+            <span class="card-label">Affordable Home Price @ 35% DTI</span>
+            <span class="card-val">${fmt(s.ahp)}</span>
+          </div>
+          <div class="data-card">
+            <span class="card-label">Down Payment Required (3%)</span>
+            <span class="card-val">${fmt(dp)}</span>
+          </div>
+          <div class="data-card gap-card">
+            <span class="card-label">Affordability Gap</span>
+            <span class="card-val">${fmt(s.gap)}</span>
+            <p class="gap-note">The gap between the median home value and what a typical <strong>${name}</strong> household can afford at 35% DTI with a 3% down payment — the problem Homium's programs directly solve.</p>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
