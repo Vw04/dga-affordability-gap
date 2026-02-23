@@ -12,9 +12,21 @@ A single-page HTML website showcasing Homium's two launched shared-appreciation 
 - Easy to maintain and update
 
 ## Current State
-- [ ] Project initialized, assets collected
-- [ ] CLAUDE.md, plan.md, log.md in place
-- [ ] index.html not yet created
+- [x] Project initialized, assets collected
+- [x] CLAUDE.md, plan.md, log.md in place
+- [x] index.html built and deployed to GitHub Pages
+- [x] All phases complete: data prep, HTML structure, styling, affordability tool, deploy
+
+## Live Site
+https://vw04.github.io/dga-affordability-gap/
+
+## What's Next
+- Verify images load correctly on live site after .nojekyll fix (pushed 2026-02-23)
+- YouTube embed — confirm it plays on live HTTPS site (expected to work; Error 153 was file:// local issue)
+- Optional polish:
+  - Fine-tune overlay opacity on hero / program card backgrounds
+  - Add Homium Gold logo to dark footer (currently using Blue logo with invert filter)
+  - Consider adding a `.gitignore` for `.DS_Store` files
 
 ## Build Phases
 
