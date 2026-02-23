@@ -463,14 +463,15 @@
       position: absolute;
       inset: 0;
       background-image: url('assets/photos%20and%20logos/us-map-outline.svg');
-      background-size: 100% 100%;
+      background-size: 100% auto;
+      background-position: top center;
       opacity: 0.10;
       transition: opacity 0.4s;
     }
     #affordability.state-selected .map-bg::before { opacity: 0; }
-    #us-map { width: 100%; height: 100%; }
+    #us-map { width: 100%; height: auto; display: block; }
     #us-map path { fill: none; stroke: transparent; stroke-width: 1; transition: stroke 0.3s, fill 0.3s; }
-    #us-map path.selected { stroke: var(--green); stroke-width: 2.5; fill: rgba(61,122,88,0.04); }
+    #us-map path.selected { stroke: rgba(61,122,88,0.4); stroke-width: 2; fill: rgba(61,122,88,0.04); }
 
     /* FOOTER */
     footer {
