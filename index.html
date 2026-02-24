@@ -467,9 +467,10 @@
       position: absolute;
       inset: 0;
       background-image: url('assets/photos%20and%20logos/us-map-outline.svg');
-      background-size: auto 100%;
-      background-position: center center;
-      opacity: 0.10;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+      opacity: 0.16;
       transition: opacity 0.4s;
     }
     #affordability.state-selected .map-bg::before { opacity: 0; }
@@ -826,7 +827,7 @@
       if (!path) return;
       path.classList.add('selected');
       const bb = path.getBBox();
-      const pad = Math.max(bb.width, bb.height) * 0.2;
+      const pad = Math.max(bb.width, bb.height) * 0.07;
       animateViewBox(svg, (bb.x-pad) + ' ' + (bb.y-pad) + ' ' + (bb.width+pad*2) + ' ' + (bb.height+pad*2));
     }
 
