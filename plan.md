@@ -16,17 +16,19 @@ A single-page HTML website showcasing Homium's two launched shared-appreciation 
 - [x] CLAUDE.md, plan.md, log.md in place
 - [x] index.html built and deployed to GitHub Pages
 - [x] All phases complete: data prep, HTML structure, styling, affordability tool, deploy
+- [x] Affordability tool redesigned: full US map background, two-column layout (state SVG left, data cards right), gap card full-width below
+- [x] Map and zoom polish: center-positioned map background, aspect-ratio-aware state zoom, 19-state SVG panel with overflow:hidden containment
 
 ## Live Site
 https://vw04.github.io/dga-affordability-gap/
 
 ## What's Next
-- Verify images load correctly on live site after .nojekyll fix (pushed 2026-02-23)
-- YouTube embed — confirm it plays on live HTTPS site (expected to work; Error 153 was file:// local issue)
 - Optional polish:
-  - Fine-tune overlay opacity on hero / program card backgrounds
+  - Fine-tune map background size/opacity on the affordability section
   - Add Homium Gold logo to dark footer (currently using Blue logo with invert filter)
   - Consider adding a `.gitignore` for `.DS_Store` files
+  - Mobile responsiveness pass for the new two-column affordability layout
+  - Consider adding more states to the affordability tool (currently 19 of 50)
 
 ## Build Phases
 

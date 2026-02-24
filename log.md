@@ -1,5 +1,20 @@
 # Session Log
 
+## Session 3 — 2026-02-24
+- What was done:
+  - Redesigned affordability gap tool layout: two-column view (zoomed state SVG left, data cards right), gap card full-width below; `overflow:hidden` on state panel prevents state from bleeding into card area
+  - Default view: full US map background (us-map-outline.svg) with dropdown centered; map fades out on state selection via `.state-selected` class toggle
+  - Data cards reordered: AMI | Home Value / AHP | Down Payment / Rent (full-width), gap card separate
+  - Iteratively fixed map background: `cover` → `82% auto` with `no-repeat`, `center center` positioning; map moved inside full section area (section-head moved inside `.tool-area`)
+  - State zoom rewritten: `zoomToState()` now matches viewBox aspect ratio to SVG panel display dimensions so every state (tall CA, wide KS) fills the full panel
+  - Compacted affordability section: reduced card padding/font-sizes, section padding, gap margins to fit on one viewport
+  - Increased map opacity 0.10 → 0.16; tuned zoom padding factor 0.2 → 0.06
+- Decisions made:
+  - State panel strictly contained with `overflow: hidden` — no CSS hacks needed for z-index overlap
+  - `background-size: 82% auto` with `background-repeat: no-repeat` prevents map tiling and keeps map within section bounds
+  - viewBox aspect-ratio matching in JS is the correct fix for state zoom letterboxing
+- Next session should: Mobile responsiveness pass for two-column affordability layout; optional footer logo swap; consider expanding to more states
+
 ## Session 2 — 2026-02-20 to 2026-02-23
 - What was done:
   - Analyzed color palette from homium.io screenshots (primary green ~#3D7A58, white bg, dark navy text)
