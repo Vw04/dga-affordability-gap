@@ -461,7 +461,16 @@
     /* MAP BACKGROUND */
     .tool-area { position: relative; overflow: hidden; padding-top: 0; padding-bottom: 60px; }
     .map-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-    .select-wrap, .tool-columns, #gap-output { position: relative; z-index: 1; }
+    .select-wrap, .tool-columns, #gap-output, #methodology-note { position: relative; z-index: 1; }
+    #methodology-note { display: none; margin-top: 16px; }
+    #affordability.state-selected #methodology-note { display: block; }
+    .methodology-divider { border-top: 1px solid #e5e7eb; margin-bottom: 14px; }
+    .methodology-caption { font-size: 13px; color: #6B7280; line-height: 1.6; margin-bottom: 10px; }
+    .methodology-details summary { font-size: 13px; color: #6B7280; cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 6px; user-select: none; }
+    .methodology-details summary::-webkit-details-marker { display: none; }
+    .methodology-details summary::after { content: '▾'; font-size: 11px; transition: transform 0.2s; }
+    .methodology-details[open] summary::after { transform: rotate(-180deg); }
+    .methodology-body { margin-top: 12px; font-size: 13px; color: #6B7280; line-height: 1.7; display: flex; flex-direction: column; gap: 10px; }
     .map-bg::before {
       content: '';
       position: absolute;
@@ -771,6 +780,19 @@
         </div>
       </div>
       <div id="gap-output"></div>
+      <div id="methodology-note">
+        <div class="methodology-divider"></div>
+        <p class="methodology-caption">Methodology: Based on 2025 ArcGIS ESRI Business Analyst data. Modeled using a 35% front-end DTI ratio, 3% down payment, and estimated state-level averages for property taxes, homeowners insurance, and PMI.</p>
+        <details class="methodology-details">
+          <summary>View Full Methodology</summary>
+          <div class="methodology-body">
+            <p>Methodology &amp; Data Sources</p>
+            <p>Calculations use 2025 ArcGIS ESRI Business Analyst data for income and home values. Affordability is modeled using a conservative 35% front-end DTI ratio, 3% down payment, and estimated state-level averages for property taxes, homeowners insurance, and PMI.</p>
+            <p>"Affordability Gap" represents the difference between the 2025 state median home value and the maximum affordable home price for a household earning Area Median Income under these assumptions.</p>
+            <p><strong>Disclosure:</strong> These figures are illustrative estimates based on ESRI data and standardized assumptions. Actual affordability will vary based on individual borrower income, credit profile, interest rates, loan terms, taxes, insurance costs, and local market conditions. This analysis is provided for informational purposes only and does not constitute a credit decision, underwriting determination, or offer to lend.</p>
+          </div>
+        </details>
+      </div>
       </div>
     </div>
   </section>
