@@ -1,5 +1,17 @@
 # Session Log
 
+## Session 4 — 2026-02-25
+- What was done:
+  - Added 48px vertical padding to `#affordability` section for breathing room around the map
+  - Added `#methodology-note` block below the gap card (visible only when a state is selected)
+    - Muted caption (13px, #6B7280) with thin divider line above
+    - Native `<details>/<summary>` "View Full Methodology" toggle — no JS required
+    - Expanded body: data sources, methodology description, and Disclosure paragraph ("Disclosure:" bolded; no italics, no other bold)
+- Decisions made:
+  - `.state-selected` class toggle pattern reused to show/hide `#methodology-note` — consistent with existing approach
+  - Native `<details>` element preferred over JS toggle for simplicity and accessibility
+- Next session should: Mobile responsiveness for two-column layout; optional footer logo swap
+
 ## Session 3 — 2026-02-24
 - What was done:
   - Redesigned affordability gap tool layout: two-column view (zoomed state SVG left, data cards right), gap card full-width below; `overflow:hidden` on state panel prevents state from bleeding into card area
