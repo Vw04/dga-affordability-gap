@@ -1,5 +1,15 @@
 # Session Log
 
+## Session 5 — 2026-02-25
+- What was done:
+  - Updated program card buttons to "Visit" only (removed displayed URL text); applies to both desktop and mobile — same HTML element
+  - Fixed mobile affordability layout: added `align-items: stretch` to `.tool-columns` at 768px breakpoint — in column flex direction, `flex-start` caused items to shrink to content width and left-align; `stretch` makes them full-width
+  - Fixed mobile map cut-off: added `#us-map { height: 220px }` on mobile to override desktop `280px`, eliminating overflow clip at `max-height: 240px`
+- Decisions made:
+  - `align-items: stretch` is the correct fix for full-width flex items in a column flex container
+  - SVG height and panel max-height kept in sync (both 220px on mobile) to prevent any clipping
+- Next session should: Add Homium Gold logo to footer; consider expanding affordability tool to more states
+
 ## Session 4 — 2026-02-25
 - What was done:
   - Added 48px vertical padding to `#affordability` section for breathing room around the map

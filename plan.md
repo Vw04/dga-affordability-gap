@@ -19,6 +19,8 @@ A single-page HTML website showcasing Homium's two launched shared-appreciation 
 - [x] Affordability tool redesigned: full US map background, two-column layout (state SVG left, data cards right), gap card full-width below
 - [x] Map and zoom polish: center-positioned map background, aspect-ratio-aware state zoom, 19-state SVG panel with overflow:hidden containment
 - [x] Methodology caption + expandable disclosure added below gap card (state-selected only)
+- [x] Program card buttons updated to "Visit" only (removed displayed URL text)
+- [x] Mobile layout fixed: affordability tool stacks full-width (dropdown → map → cards), cards centered, map no longer cut off
 
 ## Live Site
 https://vw04.github.io/dga-affordability-gap/
@@ -27,7 +29,6 @@ https://vw04.github.io/dga-affordability-gap/
 - Optional polish:
   - Add Homium Gold logo to dark footer (currently using Blue logo with invert filter)
   - Consider adding a `.gitignore` for `.DS_Store` files
-  - Mobile responsiveness pass for the two-column affordability layout
   - Consider expanding affordability tool beyond the current 19 states
 
 ## Build Phases
