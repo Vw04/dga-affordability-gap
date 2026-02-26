@@ -477,12 +477,15 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url('assets/photos%20and%20logos/us-map-outline.svg');
-      background-size: 82% auto;
-      background-repeat: no-repeat;
-      background-position: center center;
-      opacity: 0.24;
-      filter: sepia(1) saturate(3) hue-rotate(115deg) brightness(0.85);
+      background-color: rgba(61, 122, 88, 0.35);
+      -webkit-mask-image: url('assets/photos%20and%20logos/us-map-outline.svg');
+      mask-image: url('assets/photos%20and%20logos/us-map-outline.svg');
+      -webkit-mask-size: 82% auto;
+      mask-size: 82% auto;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center center;
+      mask-position: center center;
       transition: opacity 0.4s;
     }
     #affordability.state-selected .map-bg::before { opacity: 0; }
