@@ -457,7 +457,7 @@
     }
 
     /* AFFORDABILITY SECTION OVERRIDES */
-    #affordability { padding: 48px 0; }
+    #affordability { padding: 72px 0; }
     #affordability .section-head { position: relative; z-index: 1; padding-top: 36px; margin-bottom: 12px; }
 
     /* MAP BACKGROUND */
@@ -481,7 +481,8 @@
       background-size: 82% auto;
       background-repeat: no-repeat;
       background-position: center center;
-      opacity: 0.16;
+      opacity: 0.24;
+      filter: sepia(1) saturate(3) hue-rotate(115deg) brightness(0.85);
       transition: opacity 0.4s;
     }
     #affordability.state-selected .map-bg::before { opacity: 0; }
@@ -548,6 +549,7 @@
       #state-panel { flex: none; width: 100%; max-height: 220px; }
       #us-map { height: 220px; }
       .data-cards-right { grid-template-columns: 1fr; }
+      #affordability { padding: 48px 0; }
     }
   </style>
 </head>
