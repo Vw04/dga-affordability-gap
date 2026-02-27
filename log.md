@@ -1,5 +1,16 @@
 # Session Log
 
+## Session 6 — 2026-02-26
+- What was done:
+  - Moved affordability section above Relevant News in page order; swapped `.alt` class between the two sections to preserve white → gray → white → gray → white alternating pattern; added `#affordability .data-card { background: #ffffff }` to keep cards crisp white on gray background
+  - Replaced CSS `filter` approach for map outline with CSS `mask-image` + `background-color: rgba(61,122,88,0.35)` — guarantees exact same green as selected-state border stroke; fade-out transition on state select still works via `opacity`
+  - Increased desktop affordability section padding from `48px` to `72px`; added explicit mobile override to keep `48px` on ≤768px
+  - Changed `.tool-placeholder` color from `#bbb` to `var(--gray)` (#555) to match section body text
+- Decisions made:
+  - CSS `mask-image` is the correct approach for exact color matching when tinting an SVG background — `filter` is inherently approximate
+  - Swapping `.alt` between reordered sections is the minimal change to fix background alternation
+- Next session should: Add Homium Gold logo to footer; consider expanding affordability tool to more states
+
 ## Session 5 — 2026-02-25
 - What was done:
   - Updated program card buttons to "Visit" only (removed displayed URL text); applies to both desktop and mobile — same HTML element
