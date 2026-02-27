@@ -1,5 +1,15 @@
 # Session Log
 
+## Session 7 — 2026-02-27
+- What was done:
+  - Reordered all page sections for improved narrative flow: hero → video → programs → affordability → borrower impact → news
+  - Adjusted `.alt` class assignments to maintain white/gray alternating background pattern: programs gained `.alt` (gray), affordability lost `.alt` (white); borrower impact and news unchanged
+  - Used Python script to extract and reassemble section blocks cleanly (same approach as prior reorders)
+- Decisions made:
+  - Python script is the reliable method for multi-section HTML reorders — avoids giant Edit blocks and whitespace errors
+  - `#affordability .data-card { background: #ffffff }` override left in place; harmless on white background
+- Next session should: Add Homium Gold logo to footer; consider expanding affordability tool to more states
+
 ## Session 6 — 2026-02-26
 - What was done:
   - Moved affordability section above Relevant News in page order; swapped `.alt` class between the two sections to preserve white → gray → white → gray → white alternating pattern; added `#affordability .data-card { background: #ffffff }` to keep cards crisp white on gray background

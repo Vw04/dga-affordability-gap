@@ -24,6 +24,7 @@ A single-page HTML website showcasing Homium's two launched shared-appreciation 
 - [x] Affordability section moved above Relevant News; .alt class swapped to maintain background alternation; data cards pinned to #ffffff
 - [x] Map outline updated: CSS mask approach with exact green rgba(61,122,88,0.35) to match selected-state border; desktop padding increased to 72px
 - [x] Placeholder text color matched to section body gray (var(--gray) / #555)
+- [x] Full page section reorder: hero → video → programs (gray) → affordability (white) → borrower impact (gray) → news (white); .alt classes adjusted to maintain alternating pattern
 
 ## Live Site
 https://vw04.github.io/dga-affordability-gap/
